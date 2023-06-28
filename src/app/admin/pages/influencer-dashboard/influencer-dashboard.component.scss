@@ -1,0 +1,118 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  background: #1d1d1d;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+
+}
+
+aside {
+  background: rgba(0, 0, 0, 0.904);
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  h2 {
+    text-align: center;
+    word-break: break-all;
+  }
+
+  p {
+    font-size: 18px;
+    font-family: DINOT, sans-serif;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    word-break: break-all;
+  }
+}
+
+.dash_button {
+  width: fit-content;
+  cursor: pointer;
+  font-size: 23px;
+  font-family: DINOT, sans-serif;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #fff;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin: 15px auto;
+}
+
+.infos {
+  width: fit-content;
+  font-size: 18px;
+  font-family: DINOT, sans-serif;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #fff;
+}
+
+.socialNetworks {
+  margin-top: auto;
+  margin-bottom: 15px;
+
+  h4 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .links {
+    display: flex;
+    gap: 8px;
+
+    justify-content: center;
+
+  }
+}
+
+section {
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  padding: 20px 40px;
+  overflow-y: auto;
+
+}
+
+.tabs_socials {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #fff;
+  justify-content: center;
+  padding-bottom: 8px;
+
+  button {
+    position: relative;
+    color: #fff;
+    background: none;
+    font-weight: 600;
+    font-family: DINOT, sans-serif;
+    font-size: 17px;
+  }
+
+}
+
+.content_socials {
+  padding: 20px 0;
+  height: fit-content;
+
+}
+
+.tabs_socials button.active_social {
+  color: #f7e437;
+}

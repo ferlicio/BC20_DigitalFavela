@@ -1,0 +1,137 @@
+section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 5px 20px 48px;
+  background: #000;
+  overflow-y: auto;
+}
+h2 {
+  width: fit-content;
+  margin: 20px 0;
+  font-size: 84px;
+  line-height: 0.7;
+  border-bottom: 4px solid #f7e437;
+}
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  height: calc(100vh - 112.625px);
+}
+.cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 20px 20px 20px 20px;
+  gap: 30px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+.influencers {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.filters {
+  height: 100%;
+  position: relative;
+  padding: 30px 30px;
+}
+.filters h1 {
+  text-align: center;
+}
+.filters::before {
+  display: block;
+  content: "";
+  border-radius: 3px;
+  width: 5px;
+  background-color: white;
+  height: 95%;
+  left: 0;
+  top: 2.5%;
+  position: absolute;
+}
+.select-container {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.select-container .select-box {
+  border: 1px solid #05a93c;
+  background-color: inherit;
+  color: #fff;
+}
+.select-container .select-box option {
+  background-color: #000;
+  color: white;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.bnt-filter {
+  background-color: #00862d;
+  color: white;
+  font-family: DINOT, sans-serif;
+}
+.bnt-filter:hover {
+  color: #f7e437;
+  border: none;
+}
+.notfound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+.notfound p {
+  display: block;
+  font-size: 40px;
+  font-family: DINOT, sans-serif;
+  color: #f7e437;
+}
+.search {
+  margin: 30px 20px 10px;
+}
+.search input {
+  width: 400px;
+  border-bottom: 1px solid #05a93c;
+  padding: 5px;
+  background-color: black;
+  color: #fff;
+}
+.search input::placeholder {
+  color: #fff;
+}
+footer {
+  margin-top: auto;
+  margin-right: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .paginator {
+  font-family: DINOT, sans-serif;
+  color: white;
+}
+footer .paginator ::ng-deep .ngx-pagination .current {
+  background-color: #f7e437;
+  color: black;
+  font-family: DINOT, sans-serif;
+}
+footer span {
+  color: white;
+  font-size: 20px;
+  font-family: DINOT, sans-serif;
+  margin: 0px 20px;
+}
+
+.instagram{
+  margin-top: 8.3px;
+}
+
+.dropdown {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='lightgreen' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+  background-size: 4%;
+}

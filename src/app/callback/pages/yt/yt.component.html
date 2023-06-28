@@ -1,0 +1,26 @@
+<section>
+  <header class="header">
+    <img src="assets/img/logo.svg" class="header_logo" />
+    <h4 class="header_title">Cadastro</h4>
+  </header>
+  <main>
+    <div *ngIf="error">
+      <h2 class="danger">Ops... Ocorreu um erro</h2>
+      <p>Não foi possivel conectar a rede social, retorne ao painel e refaça a conexão.</p>
+    </div>
+
+    <div *ngIf="permission_denied">
+      <h2>Ops... Ocorreu um erro</h2>
+      <p>Não foi possível conectar a rede social. É preciso autorizar todas as permissões necessárias para
+        efetuar a conexão.</p>
+
+    </div>
+
+    <div *ngIf="success">
+      <h2 class="success">Processo finalizado com sucesso</h2>
+      <p>Obrigado por conectar a sua rede!</p>
+    </div>
+    <p class="timer">Essa janela será fechada automaticamente em {{timer}}s</p>
+
+  </main>
+</section>

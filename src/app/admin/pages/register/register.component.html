@@ -1,0 +1,67 @@
+<section>
+  <nav-admin tituloCartao="CADASTRO ADMIN"></nav-admin>
+  <div class="container-fluid form_container d-flex justify-content-center" id="divForm">
+    <form class="row g-3 was-validated" [formGroup]="formAdmin" (ngSubmit)="addNewAdmin()"
+      class="d-flex flex-column align-items-center justify-content-center">
+      <div class="form-field">
+        <label class="form-label" for="email">Nome:</label>
+        <input [ngClass]="{
+            'invalid-field':
+              formAdmin.controls['name'].errors &&
+              formAdmin.controls['name'].touched
+            }" formControlName="name" type="text" class="form-control" name="nome" placeholder="Digite um nome" />
+        <div class="error"
+          *ngIf="formAdmin.controls['name'].errors?.['required'] && formAdmin.controls['name'].touched">
+          Nome obrigatório
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="email">Email</label>
+        <input [ngClass]="{
+          'invalid-field':
+            formAdmin.controls['email'].errors &&
+            formAdmin.controls['email'].touched
+          }" formControlName="email" type="text" class="form-control" name="email" placeholder="Digite seu email" />
+        <div class="error"
+          *ngIf="formAdmin.controls['email'].errors?.['required'] && formAdmin.controls['email'].touched">
+          Email obrigatório
+        </div>
+        <div class="error" *ngIf="formAdmin.controls['email'].errors?.['email'] && formAdmin.controls['email'].touched">
+          Email Inválido
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="password" class="form-label">Senha</label>
+        <input [ngClass]="{
+          'invalid-field':
+            formAdmin.controls['password'].errors &&
+            formAdmin.controls['password'].touched
+          }" formControlName="password" type="password" class="form-control" name="password"
+          placeholder="Digite sua senha" />
+        <div class="error"
+          *ngIf="formAdmin.controls['password'].errors?.['required'] && formAdmin.controls['password'].touched">
+          Senha obrigatória
+        </div>
+      </div>
+      <div class="form-field mb-3">
+        <label for="confirmPassword" class="form-label">Confirmar Senha:</label>
+        <input [ngClass]="{
+          'invalid-field':
+            formAdmin.controls['confirmPassword'].errors &&
+            formAdmin.controls['confirmPassword'].touched
+          }" formControlName="confirmPassword" type="password" class="form-control" name="confirmPassword"
+          placeholder="Confirme sua senha" />
+        <div class="error"
+          *ngIf="formAdmin.controls['confirmPassword'].errors?.['required'] && formAdmin.controls['confirmPassword'].touched">
+          Senha obrigatória
+        </div>
+        <div class="error" *ngIf="formAdmin.errors?.['passwordDontMatch']">
+          Senhas diferentes
+        </div>
+      </div>
+      <button [disabled]="formAdmin.invalid" class="btn form-control">
+        Criar Admin
+      </button>
+    </form>
+  </div>
+</section>

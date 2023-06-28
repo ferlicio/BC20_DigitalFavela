@@ -1,0 +1,104 @@
+<section>
+  <nav-admin tituloCartao="ADMIN DASHBOARD"></nav-admin>
+
+
+  <div class="dashboard-container">
+
+
+    <div class="influencers">
+      <div class="search">
+        <input type="text" id="formGroupExampleInput" placeholder="Pesquise pelo nome" (input)="search($event)">
+      </div>
+      <ng-container *ngIf="influencers.length>0;else notFound">
+
+        <div class="cards-container">
+          <influencer-card *ngFor="let influ of influencers | paginate: {itemsPerPage: 10, currentPage: p}"
+            [influencer]="influ"
+            [picture]="influ.instagram? influ.instagram.profile_picture_url : influ.twitter? influ.twitter.twitterUser.profile_image_url : influ.youtube? influ.youtube.profile_picture_url: '/assets/img/semfoto.png'"
+            (click)="showInfluencer(influ)">>
+          </influencer-card>
+
+
+        </div>
+        <footer>
+          <span>Total de influencers: {{influencers.length | numbers}}</span>
+          <pagination-controls (pageChange)="p = $event" class="paginator" previousLabel="Anterior" nextLabel="Próximo">
+          </pagination-controls>
+        </footer>
+
+      </ng-container>
+      <ng-template #notFound>
+        <div class="notfound">
+          <p>Nenhum Influenciador Encontrado...</p>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="filters">
+      <h1>Encontre seu Influenciador</h1>
+      <form [formGroup]="formFiltros">
+
+        <div class="select-container">
+          <label>Situação Cadastro:</label>
+          <select class="form-control select-box dropdown" formControlName="cadastroFinalizado">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option value="false">Não Finalizado</option>
+            <option value="true">Cadastrado</option>
+          </select>
+        </div>
+
+        <div class="select-container">
+          <label>Redes Sociais:</label>
+          <select class="form-control select-box dropdown" formControlName="redesSociais">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option *ngFor="let redeSocial of redesSociais">{{redeSocial}}</option>
+          </select>
+        </div>
+
+        <div class="select-container">
+          <label>Categorias:</label>
+          <select class="form-control select-box dropdown" formControlName="categoriasInstagram1">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option *ngFor="let categoria of categoriasInstagram.sort()">{{categoria}}</option>
+          </select>
+          <select class="form-control select-box instagram dropdown" formControlName="categoriasInstagram2">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option *ngFor="let categoria of categoriasInstagram.sort()">{{categoria}}</option>
+          </select>
+          <select class="form-control select-box instagram dropdown" formControlName="categoriasInstagram3">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option *ngFor="let categoria of categoriasInstagram.sort()">{{categoria}}</option>
+          </select>
+        </div>
+
+        <div class="select-container">
+          <label>Gênero:</label>
+          <select class="form-control select-box dropdown" formControlName="genero">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option *ngFor="let gener of generos">{{gener}}</option>
+          </select>
+        </div>
+
+        <div class="select-container">
+          <label>Etnia:</label>
+          <select class="form-control select-box dropdown" formControlName="etnia">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option *ngFor="let etnia of etnias">{{etnia}}</option>
+          </select>
+        </div>
+
+        <div class="select-container">
+          <label> Indígena:</label>
+          <select class="form-control select-box dropdown" formControlName="cadastroFinalizado">
+            <option value="default" disabled>Selecione uma opção</option>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+          </select>
+        </div>
+
+        <button class="btn bnt-filter" (click)="filter()">Filtrar</button>
+        <button class="btn bnt-filter" (click)="clearFilter()">Limpar Filtros</button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,109 @@
+
+.modal-dialog {
+    max-width: 950px;
+    width: 95%;
+    position: relative;
+    vertical-align: middle;
+  }
+  
+  .modal-content {
+    position: relative;
+    
+  }
+  
+  article {
+    display: flex;
+    iframe {
+      width: 600px;
+      height: 500px;
+    }
+  }
+  
+  .media-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  
+    .header-text {
+      p,
+      h4 {
+        color: #000;
+        margin: 0;
+      }
+    }
+  
+    .profile-photo {
+      width: 60px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  
+  .aside-content {
+    gap: 10px;
+  }
+  
+  .media-insta {
+    display: flex;
+    width: 50%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  
+  .view-publi {
+    display: flex;
+    justify-content: center;
+  
+    .btn-secondary {
+      width: 90%;
+      min-height: 100%;
+    }
+  }
+  
+  .media-caption {
+    font-size: 14px;
+    text-align: start;
+    line-height: 18px;
+    padding: 10px 0px;
+    word-break: break-word;
+  }
+  
+  .media-insights {
+    display: flex;
+    flex-wrap: wrap;
+  
+    .insight {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin-bottom: 15px;
+  
+      .insight-description {
+        font-size: 14px;
+      }
+  
+      p {
+        text-align: start;
+        margin: 0
+      }
+    }
+  }
+  
+  aside{
+    width: 300px;
+    padding-top: 20px;
+    margin-left: 20px;
+  }
+  .close_modal {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    background: none;
+  }
+
+  .titleVideo{
+    font-family: DINOT, sans-serif !important;
+    color: #000 !important;
+  }

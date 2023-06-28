@@ -1,0 +1,44 @@
+<div class="modal-dialog modal-dialog-centered ">
+  <div class="modal-content ">
+    <main>
+      <img class="media-insta" [src]="media.media_url" id="media-influ">
+      <aside>
+        <div class="aside-content">
+          <div class="media-header">
+            <img class="profile-photo" [src]="instagram.profile_picture_url" alt="foto de perfil">
+            <div class="header-text">
+              <h4>{{instagram.name}}</h4>
+              <p>{{media.timestamp | date:"dd 'de' MMM 'de' y"}}</p>
+            </div>
+          </div>
+          <div>
+            <p class="media-caption">{{media.caption}}</p>
+          </div>
+          <div class="media-insights">
+            <div class="insight">
+              <p><b>{{media.like_count}}</b></p>
+              <p class="insight-description">Likes</p>
+            </div>
+            <div class="insight">
+              <p><b>{{media.comments_count}}</b></p>
+              <p class="insight-description">Comentários</p>
+            </div>
+            <div class="insight">
+              <p><b>{{media.reach}}</b></p>
+              <p class="insight-description">Alcance</p>
+            </div>
+            <div class="insight">
+              <p><b>{{media.engagement}}%</b></p>
+              <p class="insight-description">Taxa de Eng.</p>
+            </div>
+          </div>
+        </div>
+        <div class="view-publi">
+          <a class="btn btn-secondary" [href]="media.permalink" target="_blank">Ver
+            Publicação no Instagram</a>
+        </div>
+      </aside>
+    </main>
+    <button type="button" class="close_modal material-symbols-outlined" data-bs-dismiss="modal">close</button>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+section {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  overflow-y: none;
+  .nav-admin{
+    padding: 10px 0 20px 30px;
+  }
+  h1 {
+    text-align: center;
+    text-decoration: underline;
+  }
+  h3 {
+    text-align: center;
+    text-decoration: underline;
+    padding-bottom:15px;
+  }
+}
+span{
+  color: white;
+  text-decoration: underline;
+}
+.card-text{
+  font-size: 12px;
+}
+
+#draw_regioes{
+  padding: 15px 0px 20px 100px;
+}
+.graphics {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+
+.category {
+  grid-column: span 2;
+  position: relative;
+
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+  }
+}
+
+.graph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.regions {
+  grid-column: span 2;
+
+}
+.footer{
+  color: white;
+  text-align: right;
+  padding: 10px 20px 20px 10px;
+}

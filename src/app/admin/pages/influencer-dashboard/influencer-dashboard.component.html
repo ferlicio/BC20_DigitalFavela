@@ -1,0 +1,87 @@
+<ng-container *ngIf="influencer">
+  <main>
+    <aside>
+      <div class="dash_button" (click)="dashboard()">
+        <span class="material-symbols-outlined">
+          arrow_back</span> Dashboard
+      </div>
+      <img class="profile-photo"
+        [src]="influencer.instagram? influencer.instagram.profile_picture_url : influencer.twitter? influencer.twitter.twitterUser.profile_image_url : influencer.youtube? influencer.youtube.profile_picture_url: '/assets/img/semfoto.png'"
+        alt="foto de perfil">
+      <h2>{{influencer.nome}}</h2>
+      <ng-container *ngFor="let categoria of influencer.categoriasInstagram">
+        <div class="infos" *ngIf="categoria">
+          <span class="material-symbols-outlined">
+            bookmark
+          </span>
+          {{categoria}}
+        </div>
+      </ng-container>
+      <div class="infos">
+        <span class="material-symbols-outlined">
+          location_on
+        </span>
+        {{influencer.cidade|titlecase}} - {{influencer.estado}}
+      </div>
+
+      <div class="infos">
+        <span class="material-symbols-outlined">
+          sentiment_satisfied
+        </span>
+        {{influencer.genero}}
+      </div>
+      <div class="infos">
+        <span class="material-symbols-outlined">
+          handshake
+        </span>
+        {{influencer.etnia}}
+      </div>
+      <div class="infos">
+        <span class="material-symbols-outlined">
+          mail
+        </span>
+        {{influencer.email}}
+      </div>
+      <div class="infos">
+        <span class="material-symbols-outlined">
+          phone
+        </span>
+        {{influencer.telefone}}
+      </div>
+      <div class="socialNetworks">
+        <h4>Acesse:</h4>
+        <div class="links">
+          <a *ngIf='influencer.instagram' href="{{'https://www.instagram.com/'+influencer.instagram.username}}"
+            target="_blank">
+            <img src="assets/img/instagram.svg" width="40px" height="40px">
+          </a>
+          <a *ngIf='influencer.youtube'>
+            <img src="assets/img/youtube.svg" width="40px" height="40px">
+          </a>
+          <a *ngIf='influencer.twitter' href="{{'https://www.twitter.com/'+influencer.twitter.twitterUser.username}}"
+            target="_blank">
+            <img src="assets/img/twitter.svg" width="40px" height="40px">
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <section>
+      <div class="tabs_socials">
+        <button *ngIf='influencer.instagram' routerLink="insta" routerLinkActive="active_social">
+          <img src="assets/img/instagram.svg" width="30px" height="30px">
+          Instagram
+        </button>
+        <button *ngIf='influencer.youtube' routerLink="yt" routerLinkActive="active_social">
+          <img src="assets/img/youtube.svg" width="30px" height="30px">
+          Youtube</button>
+        <button *ngIf='influencer.twitter' routerLink="tw" routerLinkActive="active_social">
+          <img src="assets/img/twitter.svg" width="30px" height="30px">
+          Twitter</button>
+      </div>
+      <div class="content_socials">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+  </main>
+</ng-container>

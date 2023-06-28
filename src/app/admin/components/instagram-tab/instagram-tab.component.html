@@ -1,0 +1,90 @@
+<div class="tab__content">
+  <div class="data_cards_container">
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">{{influencer.instagram.media_count|numbers}}</h5>
+        <p class="">Publicações</p>
+      </div>
+      <span class="material-symbols-outlined">
+        photo_library
+      </span>
+    </div>
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">{{influencer.instagram.followers_count|numbers}}</h5>
+        <p class="">Seguidores</p>
+      </div>
+      <span class="material-symbols-outlined">
+        group_add
+      </span>
+    </div>
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">{{influencer.instagram.follows_count|numbers}}</h5>
+        <p class="">Seguindo</p>
+      </div>
+      <span class="material-symbols-outlined">
+        group
+      </span>
+    </div>
+  </div>
+
+  <div class="insights">
+    <div class="graphic">
+      <h3>Idade da audiência</h3>
+      <div id="draw_GenderAge"></div>
+    </div>
+    <div class="graphic">
+      <h3>Gênero da audiência</h3>
+      <div id="draw_Gender"></div>
+    </div>
+
+    <div class="geo_graphic">
+      <h3>Localizacao da audiência</h3>
+      <div id="geoInternational"></div>
+    </div>
+    <div class="city_insights">
+      <h3>Cidades de Maior audiência</h3>
+      <table class="table text-white">
+        <tbody>
+          <ng-container *ngFor="let audience_city of influencer.instagram.insights.audience_city;index as i">
+            <tr *ngIf=" i < 8">
+              <th id="line" scope="col">{{audience_city.city}}</th>
+              <td id="line" scope="row">{{audience_city.value | numbers}}%</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="media_container">
+    <h3 class="media_title">Ultimas Mídias</h3>
+    <div class="insta_photos_container">
+      <ng-container *ngFor="let media of influencer.instagram.media; index as i">
+        <button class="insta_photo" data-bs-toggle="modal" [attr.data-bs-target]="'#photo'+i">
+          <img [src]="media.media_url">
+          <div class="photo_info">
+            <div class="text_icon_container">
+              <div class="text_icon">
+                <span class="material-symbols-outlined">
+                  favorite
+                </span>
+                <p>{{media.like_count}}</p>
+              </div>
+              <div class="text_icon">
+                <span class="material-symbols-outlined">
+                  mode_comment
+                </span>
+                <p>{{media.comments_count}}</p>
+              </div>
+            </div>
+          </div>
+        </button>
+        <div class="modal fade" data-bs-backdrop='static' [id]="'photo'+i" data-bs-keyboard="true" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <insta-photo [media]='media' [instagram]="influencer.instagram"></insta-photo>
+        </div>
+      </ng-container>
+    </div>
+  </div>

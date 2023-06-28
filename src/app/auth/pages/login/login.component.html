@@ -1,0 +1,22 @@
+<section>
+  <header class="header">
+    <img src="assets/img/logo.svg" class="header_logo" routerLink="">
+    <h4 class="header_title">Login</h4>
+  </header>
+  <div class="container-fluid form_container d-flex justify-content-center" id="divForm">
+    <form #form="ngForm" (ngSubmit)="signIn()" class="d-flex flex-column align-items-center justify-content-center">
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="email" placeholder="Digite seu email"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="" placeholder="Digite sua senha"
+          [(ngModel)]="password" required>
+      </div>
+
+      <button [disabled]="form.invalid" class="btn form-control">Login</button>
+    </form>
+  </div>
+</section>

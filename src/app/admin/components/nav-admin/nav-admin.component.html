@@ -1,0 +1,11 @@
+<header class="header">
+    <img src="assets/img/logo.svg" class="header_logo" routerLink="">
+    <h4 class="header_title">{{tituloCartao}}</h4>
+    <div class="header_nav" id="navbarNav">
+      <a class="menu__item" routerLink="/admin/dashboard">Dashboard</a>
+      <a class="menu__item" routerLink="/admin/grafico">Grafico</a>
+      <a class="menu__item" routerLink="/admin/cadastro" *ngIf="superAdminLogged">Registro</a>
+      <button class="menu__item" (click)="deslogar()"><span class="material-symbols-outlined">logout</span></button>
+    </div>
+  </header>
+  

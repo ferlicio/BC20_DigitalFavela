@@ -1,0 +1,253 @@
+<form class="row g-3 was-validated" [formGroup]="formRegistro" (ngSubmit)="registerInfluencer()" *ngIf="!registerConfirm;else spinner">
+  <div class="form-field">
+    <input type="text" class="text-control" placeholder="Nome Completo:" formControlName="nome" [ngClass]="{'invalid-field':formRegistro.controls['nome'].errors && formRegistro.controls['nome'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['nome'].errors?.['required'] && formRegistro.controls['nome'].touched">
+      Nome completo é obrigatório
+    </div>
+  </div>
+  <div class="form-field">
+    <input type="text" class="text-control" placeholder="Email:" formControlName="email" [ngClass]="{'invalid-field':formRegistro.controls['email'].errors && formRegistro.controls['email'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['email'].errors?.['required'] && formRegistro.controls['email'].touched">
+      Campo obrigatório
+    </div>
+    <div class="error"
+      *ngIf="formRegistro.controls['email'].errors?.['email'] && formRegistro.controls['email'].touched">
+      Email Inválido
+    </div>
+  </div>
+  <div class="form-field">
+    <input type="text" class="text-control" placeholder="Confirmar Email:" formControlName="confirmarEmail"
+      [ngClass]="{'invalid-field':formRegistro.controls['confirmarEmail'].errors && formRegistro.controls['confirmarEmail'].touched || formRegistro.errors?.['emailDontMatch']}">
+    <div class="error"
+      *ngIf="formRegistro.controls['confirmarEmail'].errors?.['required'] && formRegistro.controls['confirmarEmail'].touched">
+      Campo obrigatório
+    </div>
+    <div class="error"
+      *ngIf="formRegistro.controls['confirmarEmail'].errors?.['email'] && formRegistro.controls['confirmarEmail'].touched">
+      Email Inválido
+    </div>
+    <div class="error" *ngIf="formRegistro.errors?.['emailDontMatch']">
+      Email diferente
+    </div>
+  </div>
+  <div class="form-field">
+    <input type="text" class="text-control" placeholder="Telefone:" mask="(00) 00000-0000" formControlName="telefone"
+      [ngClass]="{'invalid-field':formRegistro.controls['telefone'].errors && formRegistro.controls['telefone'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['telefone'].errors?.['minlength'] && formRegistro.controls['telefone'].touched">
+      Telefone invalido (00) 00000-0000
+    </div>
+    <div class="error"
+      *ngIf="formRegistro.controls['telefone'].errors?.['required'] && formRegistro.controls['telefone'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+  <div class="form-field">
+    <input type="password" class="text-control" placeholder="Senha:" formControlName="senha" [ngClass]="{'invalid-field':formRegistro.controls['senha'].errors && formRegistro.controls['senha'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['senha'].errors?.['required'] && formRegistro.controls['senha'].touched">
+      Campo obrigatório
+    </div>
+    <div class="error"
+      *ngIf="formRegistro.controls['senha'].errors?.['minlength'] && formRegistro.controls['senha'].touched">
+      Senha inválida
+    </div>
+  </div>
+  <div class="form-field">
+    <input type="password" class="text-control" placeholder="Confirmar Senha:" formControlName="confirmarSenha"
+      [ngClass]="{'invalid-field':formRegistro.controls['confirmarSenha'].errors && formRegistro.controls['confirmarSenha'].touched || formRegistro.errors?.['passwordDontMatch']}">
+    <div class="error"
+      *ngIf="formRegistro.controls['confirmarSenha'].errors?.['required'] && formRegistro.controls['confirmarSenha'].touched">
+      Campo obrigatório
+    </div>
+    <div class="error"
+      *ngIf="formRegistro.controls['confirmarSenha'].errors?.['minlength'] && formRegistro.controls['confirmarSenha'].touched">
+      Senha inválida
+    </div>
+    <div class="error" *ngIf="formRegistro.errors?.['passwordDontMatch']">
+      Senha diferente
+    </div>
+  </div>
+
+  <div class="form-field">
+    <input type="text" class="text-control" placeholder="Data de aniversário:dia/mês/ano" mask="00/00/0000"
+      formControlName="dataNascimento" [ngClass]="{'invalid-field':formRegistro.controls['dataNascimento'].errors && formRegistro.controls['dataNascimento'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['dataNascimento'].errors?.['required'] && formRegistro.controls['dataNascimento'].touched">
+      Esse campo é obrigatório
+    </div>
+    <div class="error" *ngIf="formRegistro.controls['dataNascimento'].errors?.['minlength'] && formRegistro.touched">
+      Data inválida
+    </div>
+  </div>
+
+  <div class="form-field col-6">
+    <input type="text" class="text-control" placeholder="CPF:" mask="000.000.000-00" formControlName="cpf" [ngClass]="{'invalid-field':formRegistro.controls['cpf'].errors && formRegistro.controls['cpf'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['cpf'].errors?.['minlength'] && formRegistro.controls['cpf'].touched">
+      CPF inválido - 000.000.000-00
+    </div>
+    <div class="error"
+      *ngIf="formRegistro.controls['cpf'].errors?.['required'] && formRegistro.controls['cpf'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+
+  <div class="form-field col-6">
+    <input type="text" class="text-control" placeholder="CEP:" mask="00.000-000" formControlName="cep" [ngClass]="{'invalid-field':formRegistro.controls['cep'].errors && formRegistro.controls['cep'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['cep'].errors?.['minlength'] && formRegistro.controls['cep'].touched">
+      CEP inválido - 00.000-000
+    </div>
+    <div class="error"
+      *ngIf="formRegistro.controls['cep'].errors?.['required'] && formRegistro.controls['cep'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+
+  <div class="col-md-6 flex flex-column form-field">
+    <input type="text" class="text-control" placeholder="Cidade:" formControlName="cidade" [ngClass]="{'invalid-field':formRegistro.controls['cidade'].errors && formRegistro.controls['cidade'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['cidade'].errors?.['required'] && formRegistro.controls['cidade'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+
+  <div class="col-md-6 flex flex-column form-field">
+    <select class="custom-select text-control dropdown" formControlName="estado" [ngClass]="{'invalid-field':formRegistro.controls['estado'].errors && formRegistro.controls['estado'].touched}
+    ">
+      <option selected disabled value="">Selecione seu Estado</option>
+      <option *ngFor="let estado of estados">{{estado}}</option>
+    </select>
+    <div class="error"
+      *ngIf="formRegistro.controls['estado'].errors?.['required'] && formRegistro.controls['estado'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+
+  <div class="form-field">
+    <input type="text" class="text-control" placeholder="Endereço:" formControlName="endereco" [ngClass]="{'invalid-field':formRegistro.controls['endereco'].errors && formRegistro.controls['endereco'].touched}
+    ">
+    <div class="error"
+      *ngIf="formRegistro.controls['endereco'].errors?.['required'] && formRegistro.controls['endereco'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+  <div class="form-field col-sm-3">
+    <input type="text" class="text-control" placeholder="Número:" formControlName="numero"
+      [ngClass]="{'disable_input':adress}">
+  </div>
+  <div class="form-field col-sm-3">
+    <input [ngClass]="{'disable_input':adress}" type="text" class="text-control" placeholder="Complemento:"
+      formControlName="complemento">
+  </div>
+  <div class="col-sm-6">
+    <label class="checkbox__container adress underline">Meu endereço não tem número
+      <input type="checkbox" (click)="disableAdress()">
+      <span class="checkmark disable_checkbox"></span>
+    </label>
+  </div>
+
+  <div class="flex form-field">
+    <div class="radio-item col-md-3">
+      <input type="radio" id="indigena" name="indigena" value=true formControlName="indigena">
+      <label for="indigena">Sou Indígena</label>
+    </div>
+    <div class="radio-item col-md-3">
+      <input type="radio" id="n-indigena" name="indigena" value=false formControlName="indigena">
+      <label for="n-indigena">Não sou Indigena</label>
+    </div>
+  </div>
+  <div class="col-md-6 flex flex-column form-field">
+    <label for="genero">Com qual genêro você se identifica</label>
+    <select id="genero" class="custom-select text-control dropdown" formControlName="genero" [ngClass]="{'invalid-field':formRegistro.controls['genero'].errors && formRegistro.controls['genero'].touched}
+    ">
+      <option selected disabled value="">Selecione uma opção</option>
+      <option *ngFor="let gener of generos">{{gener}}</option>
+    </select>
+    <div class="error"
+      *ngIf="formRegistro.controls['genero'].errors?.['required'] && formRegistro.controls['genero'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+  <div class="col-md-6 flex flex-column form-field">
+    <label for="etnia">Você se declara:</label>
+    <select id="etnia" class="custom-select text-control dropdown" formControlName="etnia" [ngClass]="{'invalid-field':formRegistro.controls['etnia'].errors && formRegistro.controls['etnia'].touched}
+    ">
+      <option selected disabled value="">Selecione uma opção</option>
+      <option *ngFor="let etnia of etnias">{{etnia}}</option>
+    </select>
+    <div class="error"
+      *ngIf="formRegistro.controls['etnia'].errors?.['required'] && formRegistro.controls['etnia'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+  
+
+  <div class="form-field">
+    <input type="text" class="text-control" placeholder="Nome da sua favela, comunidade, aldeia ou bairro:"
+      formControlName="nomeComunidade" [ngClass]="{'invalid-field':formRegistro.controls['nomeComunidade'].errors && formRegistro.controls['nomeComunidade'].touched}
+      ">
+    <div class="error"
+      *ngIf="formRegistro.controls['nomeComunidade'].errors?.['required'] && formRegistro.controls['nomeComunidade'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+  <label class="line-height-4">Quais tópicos e categorias você aborda?
+    <br>Selecione 1 a 3 categorias:</label>
+  <div class="col-md-4 form-field">
+    <select class="text-control dropdown" formControlName="categoriasInstagram" value=""
+      [ngClass]="{'invalid-field':formRegistro.controls['categoriasInstagram'].errors && formRegistro.controls['categoriasInstagram'].touched}">
+      <option disabled value="">Categoria 1 - Selecione</option>
+      <option *ngFor="let categorias of categoriasInstagram">{{categorias}}</option>
+    </select>
+    <div class="error"
+      *ngIf="formRegistro.controls['categoriasInstagram'].errors?.['required'] && formRegistro.controls['categoriasInstagram'].touched">
+      Campo Obrigatório
+    </div>
+  </div>
+  <div class="col-md-4 form-field">
+    <select class="text-control dropdown" formControlName="categoriasInstagram2" value="">
+      <option disabled value="">Categoria 2 - Selecione</option>
+      <option *ngFor="let categorias of categoriasInstagram">{{categorias}}</option>
+    </select>
+  </div>
+  <div class="col-md-4 form-field">
+    <select class="text-control dropdown" formControlName="categoriasInstagram3" value="">
+      <option disabled value="">Categoria 3 - Selecione</option>
+      <option *ngFor="let categorias of categoriasInstagram">{{categorias}}</option>
+    </select>
+  </div>
+  <div>
+    <label class="checkbox__container serviceTerms"> AO PREENCHER MEU REGISTRO, CERTIFICO QUE TENHO MAIS DE 18 ANOS E
+      ACEITO OS <a target="_blank"
+        href="http://https://tagger.digitalfavela.com.br/assets/documents/terms-of-use.pdf">TERMOS DE SERVIÇO E A
+        POLÍTICA DE
+        PRIVACIDADE</a>
+      <input type="checkbox" formControlName="termosServico" value=true>
+      <span class="checkmark"></span>
+    </label>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn--primary mt-6" id="confirm" [disabled]="formRegistro.invalid">CONFIRMAR E CONTINUAR</button>
+  </div>
+
+</form>
+
+<ng-template #spinner>
+  <div class="d-flex flex-column align-items-center text-white">
+    <p class="mb-3 register">Cadastrando...</p>
+    <div class="spinner-border" role="status" aria-hidden="true"></div>
+  </div>
+</ng-template>
+

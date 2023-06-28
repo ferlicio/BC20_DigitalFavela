@@ -1,0 +1,57 @@
+<div class="content">
+
+  <main>
+    <section class="conect_container">
+      <h2>CONECTE SUAS REDES</h2>
+      <div class="social_connect">
+        <ng-container *ngFor="let social of socialNetworks">
+          <button *ngIf="!social.connection" class="social_button" (click)="popupWindow(social.link, social.name)"
+            [disabled]='social.connection'>
+            <div class=" icon_container">
+              <img [src]="social.icon" width="35px" height="35px">
+              <p>{{social.name}}</p>
+            </div>
+            <div class="connect_button">
+              <span class="material-symbols-outlined add_button">add</span>
+            </div>
+          </button>
+          <span *ngIf="social.connection" class="social_button">
+            <div class=" icon_container">
+              <img [src]="social.icon" width="35px" height="35px">
+              <p>{{social.name}}</p>
+            </div>
+            <div class="connect_button">
+              <!-- <span class="material-symbols-outlined check_button" (click)="disconnectSocial(social.name)">close</span> -->
+              <button type="button" class="disconnectBtn" data-bs-toggle="modal" data-bs-target="#desconectarRedeModal" (click)="selectedNetwork = social.name">
+                <span class="material-symbols-outlined check_button">close</span>
+              </button>
+            </div>
+          </span>
+        </ng-container>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<div class="modal fade" id="desconectarRedeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color:black">
+      <div class="modal-header" style="border-bottom:0px">
+        <h3 class="modal-title" id="exampleModalLabel">Deseja mesmo desconectar seu {{selectedNetwork}}?</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="selectedNetwork = ''"></button>
+      </div>
+      <div class="modal-body" style="border-top:0px">
+        <div class="row">
+          <div class="col-8 col-sm-6 footer">
+            <button type="button" class="btn" data-bs-dismiss="modal" (click)="selectedNetwork = ''">Cancelar</button>
+          </div>
+          <div class="col-8 col-sm-6 footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="disconnectSocial(selectedNetwork)">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<main>
+  <div class="tab__content">
+    <div class="data_cards_container">
+      <div class="data_card">
+        <div class="content_card">
+          <h5 class="">{{influencer.youtube.subscriberCount|numbers}}</h5>
+          <p class="">Inscritos</p>
+        </div>
+        <span class="material-symbols-outlined">
+          subscriptions
+        </span>
+      </div>
+
+      <div class="data_card">
+        <div class="content_card">
+          <h5 class="">{{influencer.youtube.views|numbers}}</h5>
+          <p class="">Visualizações</p>
+        </div>
+        <span class="material-symbols-outlined">
+          visibility
+        </span>
+      </div>
+      <div class="data_card">
+        <div class="content_card">
+          <h5 class="">{{influencer.youtube.likes|numbers}}</h5>
+          <p class="">Likes</p>
+        </div>
+        <span class="material-symbols-outlined ">
+          thumb_up
+        </span>
+      </div>
+      <div class="data_card">
+        <div class="content_card">
+          <h5 class="">{{influencer.youtube.dislikes|numbers}}</h5>
+          <p class="">Dislikes</p>
+        </div>
+        <span class="material-symbols-outlined ">
+          thumb_down
+        </span>
+      </div>
+      <div class="data_card">
+        <div class="content_card">
+          <h5 class="">{{influencer.youtube.comments|numbers}}</h5>
+          <p>Comentários</p>
+        </div>
+        <span class="material-symbols-outlined">
+          chat
+        </span>
+      </div>
+
+
+    </div>
+    <div class="data_graphics">
+
+      <div class="graphic mb-5">
+        <h3>Idade da audiência</h3>
+        <div id="draw_GenderAge"></div>
+      </div>
+
+      <div class="graphic_pie mb-5">
+        <h3>Gênero da audiência</h3>
+        <div id="draw_Gender"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <h3>Ultimos Videos</h3>
+  <h5>{{influencer.youtube.title}}</h5>
+  <section class="videos-thumb">
+
+    <ng-container *ngFor="let video of influencer.youtube.videos | paginate: {itemsPerPage: 4, currentPage: p};index as i ">
+      <div class="col-md-3">
+        <div class="card text-bg-dark">
+        <img [src]="video.thumbnail" style="width:100%;height:auto">
+          <div class="card-body">
+            <h5 class="card-title">{{video.title}}</h5>
+            <p class="card-text">{{video.description}}</p>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+              [attr.data-bs-target]="'#video'+i">
+              Insights do Video
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" data-bs-backdrop="static" [id]="'video'+i" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <youtube-video [youtube]="influencer.youtube" [video]="video"></youtube-video>
+      </div>
+    </ng-container>
+  </section>
+  <pagination-controls (pageChange)="p = $event" class="paginator" previousLabel="Anterior" nextLabel="Próximo">
+  </pagination-controls>
+</main>

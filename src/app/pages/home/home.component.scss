@@ -1,0 +1,144 @@
+nav {
+  padding: 30px 80px;
+}
+
+body {
+  background-color: #000;
+}
+
+.header_logo {
+  width: 20%;
+  max-width: 140px;
+  height: auto;
+}
+
+main {
+  width: 100%;  
+  justify-content: center;
+  display: flex;
+}
+
+.bg--dark {
+  background-color: #000;
+}
+
+a.menu__item,
+button.menu__item {
+  color: white;
+  text-decoration: none;
+  font-family: Bebas Neue, sans-serif;
+  font-size: 18px;
+  padding: 0 5px;
+  cursor: pointer;
+
+  &:hover {
+    color: #f5e24b;
+  }
+}
+
+button.menu__item {
+  background-color: black;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.yellow {
+  color: #fff350;
+  font-size: 35px;
+}
+
+#navbarNav.collapse.navbar-collapse {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contact_button {
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  width: 80px;
+  border: 1px solid #00862d;
+}
+
+.advertise_button {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  width: 170px;
+  background-color: #00862d;
+  border: 1px solid #00862d;
+}
+.roleButtom {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  width: 170px;
+  background-color: #eb1552;
+  border: 1px solid #eb1552;
+}
+
+.register_button {
+  position: fixed;
+  bottom: 95px;
+  right: 97px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: #eb1552;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.1s;
+  cursor: pointer;
+
+  a,
+  span {
+    color: #fff350;
+    text-align: center;
+  }
+
+  span {
+    font-size: 42px;
+  }
+
+  a {
+    font-size: 16px;
+    font-family: Bebas Neue, sans-serif;
+    text-decoration: underline;
+    width: 90px;
+    line-height: 18px;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.1s;
+  }
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1200px;
+}
+
+.img1 {
+  display: flex;
+  padding-top: 50px;
+}
+
+.img2 {
+  display: flex;
+  padding-top: 50px;
+}
+
+.img3 {
+  display: flex;
+  padding-top: 50px;
+}

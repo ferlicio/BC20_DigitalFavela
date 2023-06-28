@@ -1,0 +1,48 @@
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <article>
+
+      <iframe  #videoYT [src]="'https://www.youtube.com/embed/'+ video.id +'?rel=0'|safe:'resourceUrl'"></iframe>
+    <aside>
+          <div class="aside-content">
+            <div class="media-header">
+              <img class="profile-photo" [src]="youtube.profile_picture_url" alt="foto de perfil">
+              <div class="header-text">
+                <h6 class="titleVideo">{{video.title}}</h6>
+              </div>
+            </div>
+            <div>
+              <p class="media-caption">{{video.description}}</p>
+            </div>
+            <div class="media-insights">
+              <div class="insight">
+                <p><b>{{video.views}}</b></p>
+                <p class="insight-description">Views</p>
+              </div>
+              <div class="insight">
+                <p><b>{{video.favorite}}</b></p>
+                <p class="insight-description">Favoritado</p>
+              </div>
+              <div class="insight">
+                <p><b>{{video.likes}}</b></p>
+                <p class="insight-description">Likes</p>
+              </div>
+              <div class="insight">
+                <p><b>{{video.comments}}</b></p>
+                <p class="insight-description">Comentários</p>
+              </div>
+              <div class="insight">
+                <p><b>{{video.reach |number:'1.0-2'}}%</b></p>
+                <p class="insight-description">Alcance</p>
+              </div>
+              <div class="insight">
+                <p><b>{{video.engagement|number:'1.0-2'}}%</b></p>
+                <p class="insight-description">Taxa de Eng.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </article>
+      <button type="button" class="close_modal material-symbols-outlined" data-bs-dismiss="modal" (click)="stopVideo();">close</button>
+    </div>
+  </div>

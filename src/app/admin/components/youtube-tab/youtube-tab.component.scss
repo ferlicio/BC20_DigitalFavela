@@ -1,0 +1,134 @@
+main {
+  overflow-x: hidden;
+  h5{
+    text-align: center;
+  }
+  h3 {
+    text-align: center;
+  }
+  #bio{
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.tab__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.data_cards_container {
+  display: flex;
+  gap: 35px;
+  justify-content: center;
+}
+
+.data_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 200px;
+  height: 80px;
+  color: #000;
+  border-radius: 10px;
+  background-color: rgba(#fff, 0.9);
+
+  &:hover {
+    transform: scale(1.1)
+  }
+
+  .content_card {
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+
+    line-height: 15px;
+    padding: 10px 0;
+
+    h5 {
+      color: black;
+      margin: 0;
+      font-size: 35px;
+    }
+
+    p {
+      margin-bottom: 0;
+      margin-left: 1px;
+    }
+
+  }
+
+  span {
+    font-size: 35px;
+  }
+}
+
+.data_graphics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.graphic_pie {
+
+  position: relative;
+
+  & h3 {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+  }
+}
+
+#geoInternational {
+  width: 100%;
+  height: 600px;
+}
+
+.videos-thumb {
+  display: flex;
+
+  iframe {
+    width: auto;
+    height: 250px;
+  }
+}
+
+.col-md-3 {
+  padding: 20px 10px 20px 10px;
+}
+
+.paginator {
+  text-align: center;
+  font-family: DINOT, sans-serif;
+  color: #fff;
+
+  ::ng-deep .ngx-pagination {
+    .current {
+      background-color: #f7e437;
+      color: black;
+      font-family: DINOT, sans-serif;
+      border-radius: 5px;
+    }
+
+    li:hover {
+      background-color: #fff;
+      color: #000;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      border-radius: 5px;
+
+    }
+  }
+}
+
+.card {
+  .card-text {
+    font-size: 12px;
+  }
+}

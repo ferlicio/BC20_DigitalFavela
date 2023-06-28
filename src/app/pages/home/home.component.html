@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg--dark">
+  <div class="container-fluid">
+    <img src="assets/img/logo.svg" class="header_logo">
+    <span class="spacer"></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined yellow">
+        menu
+      </span> </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <a class="menu__item">HOME</a>
+      <a class="menu__item">SOBRE</a>
+      <a class="menu__item">Influenciador</a>
+      <a class="menu__item">MANIFESTO</a>
+      <a class="menu__item">CASES</a>
+      <a class="menu__item" routerLink="auth/login" *ngIf="!userLoggedIn">LOGIN</a>
+      <button class="menu__item" (click)="signOut()" *ngIf="userLoggedIn">DESCONECTAR</button>
+
+      <div class="contact_button">
+        <a class="menu__item">CONTATO</a>
+      </div>
+      <div class="advertise_button">
+        <a class="menu__item">ANUNCIE COM A GENTE</a>
+      </div>
+      <div class="roleButtom" *ngIf="adminRights">
+        <a class="menu__item" routerLink="admin/dashboard">PAINEL DO ADMINISTRADOR</a>
+      </div>
+      <div class="roleButtom" *ngIf="userLoggedIn && !adminRights">
+        <a class="menu__item" routerLink="influencer/dashboard">PÁGINA DO USUARIO</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<main class="bg--dark">
+  <div class="home">
+    <img class="img1" src="assets/img/o_poder_aldeia.png" alt="">
+    <img class="img2" src="assets/img/carrosel.png" alt="">
+    <img class="img3" src="assets/img/home.png" alt="">
+  </div>
+  <div class="register_button" routerLink="influencer/cadastro">
+    <span class="material-symbols-outlined">
+      done
+    </span>
+    <a>CADASTRE-SE AQUI</a>
+  </div>
+</main>

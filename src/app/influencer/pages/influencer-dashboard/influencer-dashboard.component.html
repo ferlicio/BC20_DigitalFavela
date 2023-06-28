@@ -1,0 +1,92 @@
+<main>
+  <aside class="aside_total" id="aside_total">
+    <div class="aside_header" *ngIf="influencer">
+      <img
+        [src]="influencer.instagram? influencer.instagram.profile_picture_url : influencer.twitter? influencer.twitter.twitterUser.profile_image_url : influencer.youtube? influencer.youtube.profile_picture_url: '/assets/img/semfoto.png'"
+        class="img_influencer">
+      <h2> {{influencer.nome}}</h2>
+      <div class="tabs_socials">
+        <p *ngIf='influencer.instagram'>
+          <img src="assets/img/instagram.svg" width="30px" height="30px">
+          {{influencer.instagram.username}}
+        </p>
+        <p *ngIf='influencer.youtube'>
+          <img src="assets/img/youtube.svg" width="30px" height="30px">
+          {{influencer.youtube.title}}
+        </p>
+        <p *ngIf='influencer.twitter'>
+          <img src="assets/img/twitter.svg" width="30px" height="30px">
+          {{influencer.twitter.twitterUser.username}}
+        </p>
+      </div>
+      <div class="category">
+        <h4 routerLink="redes"> CONECTE SUAS REDES </h4>
+        <h4>CAMPANHAS</h4>
+        <h4>PAGAMENTOS</h4>
+        <h4>NOTIFICAÇÕES</h4>
+        <h4>ALTERAR DADOS</h4>
+        <h4>AJUDA</h4>
+      </div>
+      <div class="container_logout" (click)="deslogar()">
+        <span class="material-symbols-outlined">logout</span>
+        <div class="logout">DESCONECTAR</div>
+      </div>
+      <div class="footer_logo">
+        <img src="assets/img/logo.svg" routerLink="">
+      </div>
+    </div>
+  </aside>
+  <div class="menu">
+    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+      <img id="menu_img" src="assets/img/burger.svg" alt="">
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"
+      style="width: 270px; background-color: #030303;">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside class="aside_canvas">
+          <div class="aside_header" *ngIf="influencer">
+            <img
+              [src]="influencer.instagram? influencer.instagram.profile_picture_url : influencer.twitter? influencer.twitter.twitterUser.profile_image_url : influencer.youtube? influencer.youtube.profile_picture_url: '/assets/img/semfoto.png'"
+              class="img_influencer">
+            <h2> {{influencer.nome}}</h2>
+            <div class="tabs_socials">
+              <p *ngIf='influencer.instagram'>
+                <img src="assets/img/instagram.svg" width="30px" height="30px">
+                {{influencer.instagram.username}}
+              </p>
+              <p *ngIf='influencer.youtube'>
+                <img src="assets/img/youtube.svg" width="30px" height="30px">
+                {{influencer.youtube.title}}
+              </p>
+              <p *ngIf='influencer.twitter'>
+                <img src="assets/img/twitter.svg" width="30px" height="30px">
+                {{influencer.twitter.twitterUser.username}}
+              </p>
+            </div>
+            <div class="category">
+              <h4 routerLink="redes"> CONECTE SUAS REDES </h4>
+              <h4>CAMPANHAS</h4>
+              <h4>PAGAMENTOS</h4>
+              <h4>NOTIFICAÇÕES</h4>
+              <h4>ALTERAR DADOS</h4>
+              <h4>AJUDA</h4>
+            </div>
+            <div class="container_logout" (click)="deslogar()">
+              <span class="material-symbols-outlined">logout</span>
+              <div class="logout">DESCONECTAR</div>
+            </div>
+            <div class="footer_logo">
+              <img src="assets/img/logo.svg" routerLink="">
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <section class="social_networks">
+    <router-outlet> </router-outlet>
+  </section>
+</main>

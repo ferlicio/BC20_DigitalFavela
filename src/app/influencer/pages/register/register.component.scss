@@ -1,0 +1,100 @@
+@import url(//db.onlinewebfonts.com/c/1c587cd97662ab09cb8ba96867f212e7?family=DINOT-Regular);
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 48px;
+  background: #000;
+}
+
+.header {
+  padding-bottom: 24px;
+  border-bottom: 4px solid #fff;
+  display: flex;
+  align-items: center;
+}
+
+.header_logo {
+  width: 20%;
+  max-width: 140px;
+  height: auto;
+}
+
+.header_title {
+  padding-top: 4px;  
+  margin-left: auto;
+  margin-top: auto;
+  font-family: "Bebas Neue", cursive;
+  font-size: 30px;
+  color: #f7e437;
+  line-height: 40px;
+}
+
+.form_container {
+  width: 90%;
+  max-width: 680px;
+  margin: auto;
+  padding: 64px 0;
+
+  h2 {
+    width: fit-content;
+    margin: 20px 0;
+    font-size: 84px;
+    line-height: .7;
+    border-bottom: 4px solid #f7e437;
+  }
+
+  p {
+    color: #f7e437;
+    line-height: 16px;
+  }
+
+
+  input,
+  input::placeholder,
+  label,
+  option,
+  p,
+  select {
+    font-family: DINOT, sans-serif;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 530px) {
+	
+  .form_container {
+         
+    p {
+      color: #f7e437;
+      line-height: 24px; 
+      padding-bottom: 25px;     
+    }
+  }
+
+  .header {
+    padding-bottom: 24px;
+    border-bottom: 4px solid #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header_logo {
+    width: 40%;
+    max-width: 140px;
+    height: auto;
+  }
+  
+  .header_title {
+    padding-top: 20px;
+    padding-left: 20px;    
+    margin-left: auto;
+    margin-top: auto;
+    font-family: "Bebas Neue", cursive;
+    font-size: 24px;
+    color: #f7e437;
+    line-height: 40px;
+  }
+
+
+}

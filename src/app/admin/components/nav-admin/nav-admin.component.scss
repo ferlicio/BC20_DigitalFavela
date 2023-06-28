@@ -1,0 +1,56 @@
+.header {
+    padding-bottom: 24px;
+    border-bottom: 4px solid #fff;
+    display: flex;
+    align-items: center;
+    margin-right: 43px;
+  }
+  
+  .header_logo {
+    width: 20%;
+    max-width: 140px;
+    height: auto;
+  }
+  
+  .header_title {
+    padding-top: 4px;
+    line-height: 24px;
+    margin-top: auto;
+    font-family: "Bebas Neue", cursive;
+    font-size: 36px;
+    color: #f7e437;
+    line-height: 16px;
+    margin-left: 35%;
+    display: flex;
+  }
+  
+  .header_nav {
+    padding-bottom: 8px;
+    line-height: 24px;
+    margin-left: auto;
+    margin-top: auto;
+    font-family: "Bebas Neue", cursive;
+    font-size: 30px;
+    color: #f7e437;
+    line-height: 16px;
+  }
+  
+  a.menu__item,
+  button.menu__item {
+    color: white;
+    text-decoration: none;
+    font-family: Bebas Neue, sans-serif;
+    font-size: 30px;
+    padding-left: 30px;
+  
+    cursor: pointer;
+  
+    &:hover {
+      color: #f5e24b;
+    }
+  }
+  
+  button.menu__item {
+    background-color: black;
+  }
+  

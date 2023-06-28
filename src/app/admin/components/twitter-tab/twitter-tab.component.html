@@ -1,0 +1,136 @@
+<div class="tab__content">
+  <div class="data_cards_container">
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">{{influencer.twitter.twitterUser.public_metrics.followers_count|numbers}}</h5>
+        <p class="">Seguidores</p>
+      </div>
+      <span class="material-symbols-outlined">
+        group_add
+      </span>
+    </div>
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">{{influencer.twitter.twitterUser.public_metrics.following_count|numbers}}</h5>
+        <p class="">Seguindo</p>
+      </div>
+      <span class="material-symbols-outlined">
+        group
+      </span>
+    </div>
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">{{influencer.twitter.twitterUser.public_metrics.listed_count|numbers}}</h5>
+        <p class="">Listas Públicas</p>
+      </div>
+      <span class="material-symbols-outlined">
+        checklist_rtl
+      </span>
+    </div>
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">{{influencer.twitter.twitterUser.public_metrics.tweet_count|numbers}}</h5>
+        <p class="">Tweets</p>
+      </div>
+      <span class="material-symbols-outlined">
+        chat
+      </span>
+    </div>
+  </div>
+  <div class="data_cards_container">
+    <div class="data_card" *ngIf="this.influencer.twitter.twitterUser.protected == true">
+      <div class="content_card">
+        <h5 class="">Conta</h5>
+        <p class="">Privada</p>
+      </div>
+      <span class="material-symbols-outlined">
+        lock
+      </span>
+    </div>
+
+    <div class="data_card" *ngIf="this.influencer.twitter.twitterUser.protected == false">
+      <div class="content_card">
+        <h5 class="">Conta</h5>
+        <p class="">Pública</p>
+      </div>
+      <span class="material-symbols-outlined">
+        lock_open
+      </span>
+    </div>
+
+    <div class="data_card">
+      <div class="content_card">
+        <h5 class="">since</h5>
+        <p class="">{{influencer.twitter.twitterUser.created_at | date:'dd-MM-yyyy'}}</p>
+      </div>
+      <span class="material-symbols-outlined">
+        event_available
+      </span>
+    </div>
+
+    <div class="data_card" *ngIf="this.influencer.twitter.twitterUser.verified == true">
+      <div class="content_card">
+        <h5 class="">verificado</h5>
+      </div>
+      <span class="material-symbols-outlined">
+        verified
+      </span>
+    </div>
+    <div class="data_card" *ngIf="this.influencer.twitter.twitterUser.verified == false">
+      <div class="content_card">
+        <h5 class="">Não</h5>
+        <p>verificado</p>
+      </div>
+      <span class="material-symbols-outlined">
+        unpublished
+      </span>
+    </div>
+  </div>
+  <section *ngIf="tweets.length>0">
+    <div class="twitterCards">
+      <ng-container *ngFor="let tweet of tweets | paginate: {itemsPerPage: 6, currentPage: p}
+    ">
+        <div class="card">
+          <div class="card-body">
+            <b>@{{influencer.twitter.twitterUser.username}}</b>
+            <p class="tweet_text">{{tweet.text}}</p>
+          </div>
+          <div class="card-footer text-muted insights">
+            <p>{{tweet.organic_metrics.like_count}}
+              <span class="material-symbols-outlined">
+                thumb_up
+              </span>
+            </p>
+            <p>{{tweet.organic_metrics.reply_count}}
+              <span class="material-symbols-outlined">
+                forum
+              </span>
+            </p>
+            <p>{{tweet.organic_metrics.retweet_count}}
+              <span class="material-symbols-outlined">
+                repeat
+              </span>
+            </p>
+            <p>{{tweet.organic_metrics.impression_count}}
+              <span class="material-symbols-outlined">
+                print
+              </span>
+            </p>
+            <p>{{tweet.organic_metrics.user_profile_clicks}}
+              <span class="material-symbols-outlined">
+                ads_click
+              </span>
+            </p>
+          </div>
+          <a class="tweet_link"
+            href="{{'https://www.twitter.com/'+influencer.twitter.twitterUser.username+'/status/'+tweet.id}}"
+            target="_blank">
+            <img src="assets/img/twitter.svg" width="22px" height="22px">
+          </a>
+        </div>
+      </ng-container>
+    </div>
+    <pagination-controls (pageChange)="p = $event" class="paginator" previousLabel="Anterior" nextLabel="Próximo">
+    </pagination-controls>
+  </section>
+</div>
